@@ -1,0 +1,91 @@
+/* styles.css */
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./Fonts/Pragmatica-ExtraLight.ttf') format('truetype');
+}
+
+body {
+  font-family: 'CustomFont', sans-serif;
+}
+
+body{
+  width: 310px;
+  height: 510px;
+  padding: 32px 15px 32px 15px;
+  gap: 16px;
+  border-radius: 5px;
+  /* background-color: transparent; */
+}
+
+#container{
+  margin:6px
+}
+
+.title{
+  font-size: 40px;
+  color: #111928;
+  font-weight:900;
+
+}
+p.sub-title{
+  padding-left: 12px;
+}
+.title_value{
+  display: flex;
+  justify-content:space-between;
+}
+.icon_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subtitle-font{
+  font-size: 14px;
+}
+/* 
+.grey{
+} */
+
+.sub-title{
+  color: #828282;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.violet{
+  color: #6C2BD9 !important;
+}
+
+/* Add this CSS to your stylesheets */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 10px;
+}
+
+.custom-table th {
+  background-color: #F9FAFB;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #F9FAFB;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.custom-table td span {
+  position: relative;
+}
+
+.custom-table td span .copy-icon {
+  position: absolute;
+  cursor: pointer;
+  display: none;
+}

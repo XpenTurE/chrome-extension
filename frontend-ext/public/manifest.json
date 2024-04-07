@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn Company Scraper",
+    "version": "1.0",
+    "description": "A Chrome extension to scrape data from LinkedIn company pages.",
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "type":"module"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.linkedin.com/company/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "logo1.png",
+        "48": "logo1.png",
+        "128": "logo1.png"
+      }
+    }
+  }
+  
