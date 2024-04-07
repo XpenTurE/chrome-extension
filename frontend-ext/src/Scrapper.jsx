@@ -15,12 +15,9 @@ const Scrapper = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Listen for messages from background script
         chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-            // Check if the message contains company data
             if (message.type === "companyData") {
                 console.log("From scrapper.js")
-                // Update the component state with the received data
                 console.log("message.data", message.data)
                 setCompanyData(message.data);
             }
@@ -43,13 +40,10 @@ const Scrapper = () => {
         if (!companyData) return;
 
         try {
-            // Send a POST request to the backend to save the company data
             const response = await axios.post('http://localhost:3000/api/companies', companyData);
             console.log('Company data saved successfully:', response.data);
-            // Optionally, you can handle success or show a notification to the user
         } catch (error) {
             console.error('Error saving company data:', error);
-            // Optionally, you can handle errors or show a notification to the user
         }
     };
 
@@ -57,9 +51,8 @@ const Scrapper = () => {
         <div>
             {companyData ? (
                 <div id='container'>
-                    {/* Bookmark icon */}
 
-                    {/* <button onClick={() => { navigate("/companies") }}>Companies</button> */}
+
                     <div className="logo-title-container">
                         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                             <img src={companyData.logo} alt="Company Logo" style={{ width: '70px', borderRadius: "8px" }} className="company-logo" />

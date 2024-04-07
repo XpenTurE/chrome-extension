@@ -24,14 +24,14 @@ const Companies = () => {
     fetchCompanies();
   }, []);
 
-  // Calculate index of the last item on the current page
+
   const indexOfLastItem = currentPage * itemsPerPage;
-  // Calculate index of the first item on the current page
+  
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // Get the current items to display based on pagination
+  
   const currentCompanies = companies && companies.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Calculate total number of pages
+  
   const totalPages = Math.ceil((companies?.length || 0) / itemsPerPage);
 
   const handleCopy = async (text) => {
@@ -71,22 +71,20 @@ const Companies = () => {
 
   const handleDeleteClick = async () => {
     if (selectedRows.length === 0) {
-      // If no rows are selected, do nothing
       return;
     }
 
-    // Get the IDs of selected companies to delete
+    
     const companyIdsToDelete = selectedRows.map((index) => companies[index]._id);
 
     try {
-      // Send a request to delete the selected companies
+    
       await axios.post('http://localhost:3000/api/companies/delete', { companyIds: companyIdsToDelete });
 
-      // Filter out the deleted companies from the local state
+    
       const updatedCompanies = companies.filter((company, index) => !selectedRows.includes(index));
       setCompanies(updatedCompanies);
 
-      // Clear selected rows
       setSelectedRows([]);
     } catch (error) {
       console.error('Error deleting companies:', error);
@@ -94,8 +92,6 @@ const Companies = () => {
   };
 
   const handleExportCsv = () => {
-    // Implement CSV export functionality here
-    // You can use a library like 'react-csv' or build your own CSV export logic
   };
 
   const selectedCountText = selectedRows.length > 0 ? `${selectedRows.length} selected` : '0 selected';

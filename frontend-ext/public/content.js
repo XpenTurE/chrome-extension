@@ -1,4 +1,4 @@
-// Function to extract company information from the LinkedIn page
+
 const extractCompanyInfo = () => {
   let data = {};
 
@@ -56,20 +56,13 @@ const extractCompanyInfo = () => {
     data.logo = logoElement.getAttribute("src");
   }
 
-  // Assign extracted data to the data variable
-  // ...
-
-  // Send extracted data to the background script
   sendDataToBackground(data);
 
-  // Open the popup
-  chrome.runtime.sendMessage({ type: 'openPopup' });
+chrome.runtime.sendMessage({ type: 'openPopup' });
 };
 
-// Send extracted data to the background script
 const sendDataToBackground = (data) => {
   chrome.runtime.sendMessage({ type: "companyData", data });
 };
 
-// Call the extractCompanyInfo function
 extractCompanyInfo();
